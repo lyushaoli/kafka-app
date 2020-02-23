@@ -1,6 +1,6 @@
 package com.kafkaApp;
 
-import twitter.TwitterProducer;
+import com.kafkaApp.twitter.TwitterProducer;
 
 public class Main {
 
