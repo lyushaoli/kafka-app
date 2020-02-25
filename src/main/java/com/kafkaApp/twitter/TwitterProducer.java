@@ -1,6 +1,7 @@
 package com.kafkaApp.twitter;
 
 import com.google.common.collect.Lists;
+import com.kafkaApp.Main;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Client;
 import com.twitter.hbc.core.Constants;
@@ -31,7 +32,7 @@ public class TwitterProducer {
     private String consumerSecret="";
     private String token="";
     private String secret="";
-
+    
     public void run() {
         Logger logger = LoggerFactory.getLogger(TwitterProducer.class.getName());
         logger.info("Setup");
@@ -44,6 +45,7 @@ public class TwitterProducer {
 
         // create a kafka producer
         KafkaProducer<String, String> producer = createKafkaProducer();
+
 
         // add a shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -66,7 +68,7 @@ public class TwitterProducer {
             }
             if (msg != null) {
                 logger.info(msg);
-                producer.send(new ProducerRecord<>("twitter_tweets",null, msg));
+                //producer.send(new ProducerRecord<>("twitter_tweets1",null, msg));
             }
             logger.info("End of application");
         }
