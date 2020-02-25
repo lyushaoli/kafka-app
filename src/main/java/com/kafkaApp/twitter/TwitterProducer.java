@@ -68,7 +68,7 @@ public class TwitterProducer {
             }
             if (msg != null) {
                 logger.info(msg);
-                //producer.send(new ProducerRecord<>("twitter_tweets1",null, msg));
+                producer.send(new ProducerRecord<>("twitter_tweets1",null, msg));
             }
             logger.info("End of application");
         }
